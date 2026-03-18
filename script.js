@@ -28,8 +28,18 @@ document.getElementById("message").innerText = "Insufficient funds or invalid am
 document.getElementById("amount").value = "";
 }
 
+let action = "deposit";
+
+function setAction(type){
+action = type;
+}
+
 document.getElementById("amount").addEventListener("keypress", function(event){
 if(event.key === "Enter"){
-deposit(); 
+if(action === "deposit"){
+deposit();
+}else{
+withdraw();
+}
 }
 });
