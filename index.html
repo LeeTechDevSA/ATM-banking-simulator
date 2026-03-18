@@ -1,29 +1,31 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>ATM Banking Simulator</title>
-  <link rel="stylesheet" href="style.css">
+<title>ATM Banking Simulator</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="atm">
-    <h2>🏧 ATM Simulator</h2>
+<div class="container">
 
-    <p id="welcome">Welcome, User</p>
-    <p>Balance: R<span id="balance">1000</span></p>
+<h2>ATM Simulator 💳</h2>
 
-    <input type="number" id="amount" placeholder="Enter amount">
+<p><strong>Balance: R<span id="balance">1000</span></strong></p>
 
-    <div class="buttons">
-      <button onclick="deposit()">Deposit</button>
-      <button onclick="withdraw()">Withdraw</button>
-      <button onclick="checkBalance()">Check Balance</button>
-    </div>
+<input type="number" id="amount" placeholder="Enter amount">
 
-    <p id="message"></p>
-  </div>
+<br>
 
-  <script src="script.js"></script>
+<button onclick="deposit()">Deposit</button>
+<button onclick="withdraw()">Withdraw</button>
+
+<p id="message"></p>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
+
