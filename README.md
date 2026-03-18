@@ -1,1 +1,1 @@
-ATM-simulator
+ATM-banking-simulator
