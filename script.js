@@ -1,5 +1,3 @@
-let balance = 1000;
-
 function deposit(){
 let amount = parseFloat(document.getElementById("amount").value);
 
@@ -11,6 +9,9 @@ document.getElementById("message").innerText = "Deposit successful";
 else{
 document.getElementById("message").innerText = "Enter valid amount";
 }
+
+// 👇 ADD HERE
+document.getElementById("amount").value = "";
 }
 
 function withdraw(){
@@ -24,4 +25,8 @@ document.getElementById("message").innerText = "Withdrawal successful";
 else{
 document.getElementById("message").innerText = "Insufficient funds or invalid amount";
 }
+
+// 👇 ADD HERE
+document.getElementById("amount").value = "";
 }
+
