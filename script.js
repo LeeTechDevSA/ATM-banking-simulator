@@ -1,37 +1,27 @@
 let balance = 1000;
 
-function updateDisplay() {
-  document.getElementById("balance").textContent = balance;
+function deposit(){
+let amount = parseFloat(document.getElementById("amount").value);
+
+if(amount > 0){
+balance += amount;
+document.getElementById("balance").innerText = balance;
+document.getElementById("message").innerText = "Deposit successful";
+}
+else{
+document.getElementById("message").innerText = "Enter valid amount";
+}
 }
 
-function deposit() {
-  let amount = Number(document.getElementById("amount").value);
+function withdraw(){
+let amount = parseFloat(document.getElementById("amount").value);
 
-  if (amount > 0) {
-    balance += amount;
-    document.getElementById("message").textContent = "Deposit successful!";
-  } else {
-    document.getElementById("message").textContent = "Enter a valid amount.";
-  }
-
-  updateDisplay();
+if(amount > 0 && amount <= balance){
+balance -= amount;
+document.getElementById("balance").innerText = balance;
+document.getElementById("message").innerText = "Withdrawal successful";
 }
-
-function withdraw() {
-  let amount = Number(document.getElementById("amount").value);
-
-  if (amount > balance) {
-    document.getElementById("message").textContent = "Insufficient funds.";
-  } else if (amount > 0) {
-    balance -= amount;
-    document.getElementById("message").textContent = "Withdrawal successful!";
-  } else {
-    document.getElementById("message").textContent = "Enter a valid amount.";
-  }
-
-  updateDisplay();
+else{
+document.getElementById("message").innerText = "Insufficient funds or invalid amount";
 }
-
-function checkBalance() {
-  document.getElementById("message").textContent = "Your balance is R" + balance;
 }
