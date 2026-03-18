@@ -10,7 +10,6 @@ else{
 document.getElementById("message").innerText = "Enter valid amount";
 }
 
-// 👇 ADD HERE
 document.getElementById("amount").value = "";
 }
 
@@ -26,7 +25,11 @@ else{
 document.getElementById("message").innerText = "Insufficient funds or invalid amount";
 }
 
-// 👇 ADD HERE
 document.getElementById("amount").value = "";
 }
 
+document.getElementById("amount").addEventListener("keypress", function(event){
+if(event.key === "Enter"){
+deposit(); 
+}
+});
