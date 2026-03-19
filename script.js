@@ -7,7 +7,7 @@ let amount = parseFloat(document.getElementById("amount").value);
 if(!isNaN(amount) && amount > 0){
 balance += amount;
 
-historyList.push("+ R" + amount + " (Deposit) | Balance: R" + balance);
+historyList.push("+ R" + amount + " | Balance: R" + balance);
 updateHistory();
   
 document.getElementById("balance").innerText = balance;
@@ -28,7 +28,7 @@ let amount = parseFloat(document.getElementById("amount").value);
 if(!isNaN(amount) && amount > 0 && amount <= balance){
 balance -= amount;
 
-historyList.push("- R" + amount + " (Withdraw) | Balance: R" + balance);
+historyList.push("- R" + amount + " | Balance: R" + balance);
 updateHistory();
   
 document.getElementById("balance").innerText = balance;
@@ -63,7 +63,7 @@ function updateHistory(){
 let history = document.getElementById("history");
 history.innerHTML = "";
 
-for(let i = 0; i < historyList.length; i++){
+for(let i = historyList.length - 1; i >= 0; i--){ // newest on top
 let li = document.createElement("li");
 li.innerText = historyList[i];
 history.appendChild(li);
