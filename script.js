@@ -8,6 +8,7 @@ if(!isNaN(amount) && amount > 0){
 balance += amount;
 
 historyList.push("Deposited R" + amount);
+updateHistory();
   
 document.getElementById("balance").innerText = balance;
 document.getElementById("message").innerText = "Deposit successful";
@@ -28,6 +29,7 @@ if(!isNaN(amount) && amount > 0 && amount <= balance){
 balance -= amount;
 
 historyList.push("Withdrew R" + amount);
+updateHistory();
   
 document.getElementById("balance").innerText = balance;
 document.getElementById("message").innerText = "Withdrawal successful";
@@ -47,13 +49,15 @@ function setAction(type){
 action = type;
 }
 
-document.getElementById("amount").addEventListener("keypress", function(event){
+document.getElementById("amount").addEventListener("keydown", function(event){
 if(event.key === "Enter"){
 if(action === "deposit"){
 deposit();
 }else{
 withdraw();
 }
+}
+});
 
 function updateHistory(){
 let history = document.getElementById("history");
@@ -65,6 +69,3 @@ li.innerText = historyList[i];
 history.appendChild(li);
 }
 }
-  
-}
-});
