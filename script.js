@@ -7,7 +7,7 @@ let amount = parseFloat(document.getElementById("amount").value);
 if(!isNaN(amount) && amount > 0){
 balance += amount;
 
-historyList.push("Deposited R" + amount);
+historyList.push("Deposited R" + amount + " | Balance: R" + balance);
 updateHistory();
   
 document.getElementById("balance").innerText = balance;
@@ -28,7 +28,7 @@ let amount = parseFloat(document.getElementById("amount").value);
 if(!isNaN(amount) && amount > 0 && amount <= balance){
 balance -= amount;
 
-historyList.push("Withdrew R" + amount);
+historyList.push("Withdrew R" + amount + " | Balance: R" + balance);
 updateHistory();
   
 document.getElementById("balance").innerText = balance;
