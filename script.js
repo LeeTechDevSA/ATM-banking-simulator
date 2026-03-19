@@ -63,9 +63,20 @@ function updateHistory(){
 let history = document.getElementById("history");
 history.innerHTML = "";
 
-for(let i = historyList.length - 1; i >= 0; i--){ // newest on top
+for(let i = historyList.length - 1; i >= 0; i--){
 let li = document.createElement("li");
-li.innerText = historyList[i];
+let text = historyList[i];
+
+li.innerText = text;
+
+// 🎨 Add colors
+if(text.includes("+")){
+li.style.color = "green";
+}
+else{
+li.style.color = "red";
+}
+
 history.appendChild(li);
 }
 }
