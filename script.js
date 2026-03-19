@@ -1,12 +1,18 @@
 let balance = 2000;
+let historyList = [];
 
 function deposit(){
 let amount = parseFloat(document.getElementById("amount").value);
 
-if(amount > 0){
+if(!isNaN(amount) && amount > 0){
 balance += amount;
+
+historyList.push("Deposited R" + amount);
+  
 document.getElementById("balance").innerText = balance;
 document.getElementById("message").innerText = "Deposit successful";
+
+updateHistory();  
 }
 else{
 document.getElementById("message").innerText = "Enter valid amount";
@@ -18,10 +24,15 @@ document.getElementById("amount").value = "";
 function withdraw(){
 let amount = parseFloat(document.getElementById("amount").value);
 
-if(amount > 0 && amount <= balance){
+if(!isNaN(amount) && amount > 0 && amount <= balance){
 balance -= amount;
+
+historyList.push("Withdrew R" + amount);
+  
 document.getElementById("balance").innerText = balance;
 document.getElementById("message").innerText = "Withdrawal successful";
+
+updateHistory();  
 }
 else{
 document.getElementById("message").innerText = "Insufficient funds or invalid amount";
@@ -43,5 +54,17 @@ deposit();
 }else{
 withdraw();
 }
+
+function updateHistory(){
+let history = document.getElementById("history");
+history.innerHTML = "";
+
+for(let i = 0; i < historyList.length; i++){
+let li = document.createElement("li");
+li.innerText = historyList[i];
+history.appendChild(li);
+}
+}
+  
 }
 });
