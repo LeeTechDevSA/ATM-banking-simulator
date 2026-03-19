@@ -1,3 +1,5 @@
+let balance = 2000;
+
 function deposit(){
 let amount = parseFloat(document.getElementById("amount").value);
 
